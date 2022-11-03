@@ -1,0 +1,21 @@
+<!-- Scaffold HTML -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Foreign Dispatch: Autocomplete</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="sqlite3.js"></script>
+    <script>
+      window.sqlite3InitModule().then(function (sqlite3) {
+        // The module is now loaded and the sqlite3 namespace
+        // object was passed to this function.
+        console.log("sqlite3:", sqlite3);
+        console.log(sqlite3.opfs);
+      });
+    </script>
+  </body>
+</html>
