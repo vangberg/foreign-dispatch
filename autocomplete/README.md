@@ -26,6 +26,12 @@ press "Enter".
 
 ## Publish
 
+1. Build the project:
+
+   ```bash
+   npm run build
+   ```
+
 ## Thanks
 
 - [CodeMirror](https://codemirror.net/)

@@ -61,7 +61,7 @@ async function main() {
       basicSetup,
       autocompletion({ override: [completions], activateOnTyping: true }),
     ],
-    parent: document.body,
+    parent: document.getElementById("editor"),
   });
 }
 
