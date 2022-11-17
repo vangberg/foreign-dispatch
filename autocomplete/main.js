@@ -2,6 +2,8 @@ import "./style.css";
 import initSqlJs from "sql.js";
 import sqlWasmUrl from "sql.js/dist/sql-wasm.wasm?url";
 import dbUrl from "./en-de.sqlite3?url";
+import { EditorView, basicSetup } from "codemirror";
+import { javascript } from "@codemirror/lang-javascript";
 
 async function main() {
   const sqlPromise = await initSqlJs({
@@ -31,6 +33,11 @@ async function main() {
     const row = stmt.getAsObject();
     console.log(row);
   }
+
+  let editor = new EditorView({
+    extensions: [basicSetup, javascript()],
+    parent: document.body,
+  });
 }
 
 main();

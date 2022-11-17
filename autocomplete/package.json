@@ -12,6 +12,8 @@
     "vite": "^3.2.3"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.1.1",
+    "codemirror": "^6.0.1",
     "sql.js": "^1.8.0"
   }
 }
