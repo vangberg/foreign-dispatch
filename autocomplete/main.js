@@ -29,7 +29,7 @@ async function main() {
         lexentry, coalesce(min_sense_num, '99'), importance * translation_score DESC
       LIMIT 5
     `);
-    stmt.bind({ ":term": `${term.slice(1)}*` });
+    stmt.bind({ ":term": `${term}*` });
     const results = [];
     while (stmt.step()) {
       const row = stmt.getAsObject();
@@ -48,11 +48,15 @@ async function main() {
   }
 
   function completions(context) {
-    let word = context.matchBefore(/@\w+/);
-    if (!word || (word.from == word.to && !context.explicit)) return null;
+    let match = context.matchBefore(/@\w+/);
+    if (!match) return null;
+
+    let word = match.text.slice(1);
+
+    console.log(lookup(word));
     return {
-      from: word.from,
-      options: lookup(word.text),
+      from: match.from,
+      options: lookup(word),
     };
   }
 
