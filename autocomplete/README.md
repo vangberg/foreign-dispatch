@@ -10,9 +10,7 @@
 
 ## Run locally
 
-We need to run a local server to be able to load the WASM file,
-otherwise we'll get a CORS error:
-
-```bash
-python -m http.server
+```
+npm install
+npm run dev
 ```

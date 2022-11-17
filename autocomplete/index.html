@@ -1,45 +1,12 @@
-<!-- Scaffold HTML -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foreign Dispatch: Autocomplete</title>
-    <script src="/sql-wasm.js"></script>
-    <script>
-      async function init() {
-        const sqlPromise = initSqlJs({
-          locateFile: (file) => `/${file}`,
-        });
-        const dataPromise = fetch("/en-de.sqlite3").then((res) =>
-          res.arrayBuffer()
-        );
-        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise]);
-        const db = new SQL.Database(new Uint8Array(buf));
-        // template string
-        const stmt = db.prepare(`
-        SELECT written_rep, trans_list, sense_list
-        FROM (
-            SELECT DISTINCT written_rep
-            FROM search_trans
-            WHERE form MATCH :term
-          )
-          JOIN translation USING (written_rep)
-        ORDER BY
-          lower(written_rep) LIKE '%'|| lower(:term) ||'%' DESC, length(written_rep),
-          lexentry, coalesce(min_sense_num, '99'), importance * translation_score DESC
-        LIMIT 5
-        `);
-        stmt.bind({ ":term": "hello" });
-        while (stmt.step()) {
-          const row = stmt.getAsObject();
-          console.log(row);
-        }
-      }
-
-      init();
-    </script>
   </head>
   <body>
     <div id="app"></div>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
