@@ -12,7 +12,7 @@ async function main() {
     res.arrayBuffer()
   );
 
-  const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise]);
+  const [SQL, buf] = await Promise.all([sqlPromise, dataPromise]);
   const db = new SQL.Database(new Uint8Array(buf));
 
   const stmt = db.prepare(`
