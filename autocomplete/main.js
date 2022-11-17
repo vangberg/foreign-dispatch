@@ -36,7 +36,7 @@ async function main() {
       const translations = row.trans_list.split(" | ");
       translations.forEach((translation) => {
         results.push({
-          label: term,
+          label: `@${row.written_rep}`,
           type: "text",
           detail: translation,
           apply: translation,
