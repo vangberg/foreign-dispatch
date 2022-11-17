@@ -4,6 +4,10 @@ An experimental editor with an inline English-German dictionary. To look up
 a translation, write "@" followed by the English word. To apply a translation,
 press "Enter".
 
+![Demo](autocomplete.gif)
+
+[Online demo](https://foreign-dispatch-autocomplete.netlify.app/)
+
 ## Development
 
 1. Download [WikDict](https://www.wikdict.com/) database:
