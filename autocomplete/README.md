@@ -1,16 +1,32 @@
-# Foreign Dispatch Autocomplete
+# Foreign Dispatch: Autocomplete
 
-- [Building SQLite JS/WASM bundles](https://sqlite.org/wasm/doc/trunk/building.md)
+An experimental editor with an inline English-German dictionary. To look up
+a translation, write "@" followed by the English word. To apply a translation,
+press "Enter".
 
-## Download WikDict databases
+## Development
 
-```bash
-./download-wikdict.sh
-```
+1. Download [WikDict](https://www.wikdict.com/) database:
 
-## Run locally
+   ```bash
+   ./download-wikdict.sh
+   ```
 
-```
-npm install
-npm run dev
-```
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+## Publish
+
+## Thanks
+
+- [CodeMirror](https://codemirror.net/)
+- [WikDict](https://www.wikdict.com/)
