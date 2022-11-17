@@ -2,11 +2,9 @@
 
 An experimental editor with an inline English-German dictionary. To look up
 a translation, write "@" followed by the English word. To apply a translation,
-press "Enter".
+press "Enter". [Try it here](https://foreign-dispatch-autocomplete.netlify.app/).
 
 ![Demo](autocomplete.gif)
-
-[Online demo](https://foreign-dispatch-autocomplete.netlify.app/)
 
 ## Development
 
