@@ -1,17 +1,16 @@
 import "./style.css";
 import initSqlJs from "sql.js";
 import sqlWasmUrl from "sql.js/dist/sql-wasm.wasm?url";
+import dbUrl from "./en-de.sqlite3?url";
 import { EditorView, basicSetup } from "codemirror";
 import { autocompletion } from "@codemirror/autocomplete";
 
 async function main() {
   const sqlPromise = await initSqlJs({
-    locateFile: () => sqlWasmUrl,
+    locateFile: (_) => sqlWasmUrl,
   });
 
-  const dataPromise = fetch(
-    "https://download.wikdict.com/dictionaries/wdweb/en-de.sqlite3"
-  ).then((res) => res.arrayBuffer());
+  const dataPromise = fetch(dbUrl).then((res) => res.arrayBuffer());
 
   const [SQL, buf] = await Promise.all([sqlPromise, dataPromise]);
   const db = new SQL.Database(new Uint8Array(buf));
@@ -47,8 +46,6 @@ async function main() {
     }
     return results;
   }
-
-  "foo".char;
 
   function completions(context) {
     let match = context.matchBefore(/@\w+/);
