@@ -48,12 +48,11 @@ async function main() {
   }
 
   function completions(context) {
-    let match = context.matchBefore(/@\w+/);
+    let match = context.matchBefore(/@[\w\s]+/);
     if (!match) return null;
 
     let word = match.text.slice(1);
 
-    console.log(lookup(word));
     return {
       from: match.from,
       options: lookup(word),
